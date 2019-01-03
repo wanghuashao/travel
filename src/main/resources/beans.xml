@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+   <bean id="IUserService" class="com.itheima.travel.user.service.impl.UserServiceImpl"/>
+   <bean id="IRouteService" class="com.itheima.travel.route.service.impl.RouteServiceImpl"/>
+   <bean id="IFavoriteService" class="com.itheima.travel.favorite.service.impl.FavoriteServiceImpl"/>
+
+   <bean id="IUserDao" class="com.itheima.travel.user.dao.impl.UserDaoImpl"/>
+   <!--<bean id="IUserDao" class="com.itheima.travel.user.dao.impl.UserDaoDBUtilsImpl"/>-->
+   <bean id="IRouteDao" class="com.itheima.travel.route.dao.impl.RouteDaoImpl"/>
+   <bean id="IFavoriteDao" class="com.itheima.travel.favorite.dao.impl.FavoriteDaoImpl"/>
+</beans>

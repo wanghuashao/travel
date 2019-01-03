@@ -1,0 +1,99 @@
+<!-- 头部 start -->
+<header id="header">
+    <div class="top_banner">
+        <img src="images/top_banner.jpg" alt="">
+    </div>
+    <div class="shortcut">
+        <!-- 未登录状态  -->
+        <div class="login_out">
+            <a href="login.html">登录</a>
+            <a href="register.html">注册</a>
+        </div>
+        <!-- 登录状态  -->
+        <div class="login">
+            <span>欢迎：admin</span>
+            <a href="myfavorite.html" class="collection">我的收藏</a>
+            <a href="#">退出</a>
+        </div>
+    </div>
+    <div class="header_wrap">
+        <div class="topbar">
+            <div class="logo">
+                <a href="/"><img src="images/logo.jpg" alt=""></a>
+            </div>
+            <div class="search">
+                <input name="" type="text" placeholder="请输入路线名称" class="search_input" autocomplete="off">
+                <a href="javascript:;" class="search-button">搜索</a>
+            </div>
+            <div class="hottel">
+                <div class="hot_pic">
+                    <img src="images/hot_tel.jpg" alt="">
+                </div>
+                <div class="hot_tel">
+                    <p class="hot_time">客服热线(9:00-6:00)</p>
+                    <p class="hot_num">400-618-9090</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- 头部 end -->
+<!-- 首页导航 -->
+<div class="navitem">
+    <ul class="nav">
+
+    </ul>
+</div>
+<script>
+    $(function () {
+        $(".login").hide();
+        var url = "UserServlet";
+        var data = {"action": "getUserData"};
+        var type = "json";
+        var callback = function (resultInfo) {
+            if (resultInfo.flag) {
+                $(".login_out").hide();
+                var temp = '<span>欢迎：' + resultInfo.data.username + '</span>';
+                temp += '<a href="myfavorite.html?pageNumber=1" class="collection">我的收藏</a>';
+                temp += '<a href="UserServlet?action=logout">退出</a>';
+                // 将拼接之后的标签显示在指定的位置（登录状态所在div）
+                $(".login").html(temp);
+                // 让其显示
+                $(".login").show();
+            }
+
+        }
+        $.post(url, data, callback, type);
+    });
+
+    $(function () {
+        var url = "RouteServlet";
+        var data = {"action": "findAllCategory"};
+        var callback = function (data) {
+            var temp = '<li class="nav-active"><a href="index.html">首页</a></li>';
+            $(data).each(function (i, m) {
+                temp += '<li><a href="route_list.html?cid=' + m.cid + '&pageNumber='+1+'">' + m.cname + '</a></li>';
+            });
+            temp += ' <li><a href="favoriterank.html?pageNumber=1">收藏排行榜</a></li>'
+            $(".nav").append(temp);
+        };
+        var type = "json";
+        $.post(url,data,callback,type);
+
+        // 搜索
+        $(".search-button").click(function () {
+            var rname = $(".search_input").val();
+            location.href="route_list.html?pageNumber=1&rname="+rname;
+        })
+
+        //////////////////搜索框数据回显/////////////////////////////////////////////
+
+            var rname= getParameter("rname");
+            //如果地址栏有rname参数
+            if(rname!=null&&rname!="null"){
+                $(".search_input").val(decodeURI(rname));//保留上一次搜索的值
+            }
+    });
+
+</script>
+    
