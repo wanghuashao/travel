@@ -1,4 +1,4 @@
-package com.itheima.travel.favorite.dao.impl;
+﻿package com.itheima.travel.favorite.dao.impl;
 
 import com.itheima.travel.favorite.dao.IFavoriteDao;
 import com.itheima.travel.route.domain.Route;
@@ -18,7 +18,6 @@ public class FavoriteDaoImpl implements IFavoriteDao {
 
     /**
      * 查询该rid下的总收藏数
-     *
      * @param rid
      * @return
      */
