@@ -21,6 +21,9 @@ public class  Route implements Serializable {
     private int sid;//所属商家
     private String sourceId;//抓取数据的来源id
 
+
+
+
     private Category category;//所属分类
     private Seller seller;//所属商家
     private List<RouteImg> routeImgList;//商品详情图片列表
