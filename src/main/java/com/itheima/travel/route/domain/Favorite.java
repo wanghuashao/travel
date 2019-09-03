@@ -8,6 +8,7 @@ import java.util.Objects;
 /**
  * 收藏实体类
  */
+// 2
 public class Favorite implements Serializable {
     private Route route;//旅游线路对象
 
