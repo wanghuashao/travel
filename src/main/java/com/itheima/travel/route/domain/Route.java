@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * 旅游线路商品实体类
  */
+//到此一游
 public class  Route implements Serializable {
 
     private int rid;//线路id，必输
@@ -20,10 +21,6 @@ public class  Route implements Serializable {
     private String rimage;//缩略图
     private int sid;//所属商家
     private String sourceId;//抓取数据的来源id
-
-
-
-
     private Category category;//所属分类
     private Seller seller;//所属商家
     private List<RouteImg> routeImgList;//商品详情图片列表

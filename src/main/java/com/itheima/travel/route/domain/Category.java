@@ -5,6 +5,8 @@ import java.io.Serializable;
 /**
  * 分类实体类
  */
+
+//到此一游
 public class Category implements Serializable {
 
     private int cid;//分类id
