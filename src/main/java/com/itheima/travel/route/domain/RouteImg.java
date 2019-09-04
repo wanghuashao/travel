@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * 旅游线路图片实体类
  */
+// 4
 public class RouteImg implements Serializable {
     private int rgid;//商品图片id
     private int rid;//旅游商品id

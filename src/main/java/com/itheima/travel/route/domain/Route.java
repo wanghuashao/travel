@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 旅游线路商品实体类
  */
-
+// 3
 public class  Route implements Serializable {
 
     private int rid;//线路id，必输
